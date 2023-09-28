@@ -1,0 +1,9 @@
+.table{ 
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+tr, td{ 
+    border-collapse: collapse;    
+}
