@@ -3,7 +3,7 @@ import Facebook from '../../assets/socials/facebook-black.svg'
 import twitter from '../../assets/socials/twitter-black.svg'
 import vimeo from '../../assets/socials/vimeo-black.svg'
 import youtube from '../../assets/socials/youtube-black.svg'
-import Logo from '../../assets/logo.png'
+import Logo from '../../assets/Logo.png'
 import Subscribe from "./Subscribe";
 
 

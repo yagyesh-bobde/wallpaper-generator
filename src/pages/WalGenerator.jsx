@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import mealContext from "../context/walgenContext"
-import { Link } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 
 const Planner = () => {
     const { getMealPlan } = useContext(mealContext)
+    const navigate = useNavigate()
     const [formData, setformData] = useState({
         targetCal: 0,
         timeframe: "day",
@@ -50,12 +51,20 @@ const Planner = () => {
             [e.target.name]: e.target.value
         })
     }    
+    
+    useEffect(() => {
+        if (localStorage.getItem('login')=== 'true'){ 
+            navigate('/login')
+        } 
+    }, [])
+
+
   return (
     <div className="min-h-screen">
         <h2 className="text-center">
             Meal Planner
         </h2>
-          <form className="flex-center flex-col shadow-xl border-0 " onSubmit={(e) => showMealPlan(e)}>
+        <form className="flex-center flex-col shadow-xl border-0 " onSubmit={(e) => showMealPlan(e)}>
                 <div className="w-1/2 my-2">
                     <label htmlFor="targetCal" className=" block w-full font-semibold text-xl mx-5">
                         Target Calories
@@ -86,39 +95,7 @@ const Planner = () => {
             <button type="submit" className="rounded-full px-5 py-4 text-center bg-green-300 text-black my-5 font-semibold"  >
                     Generate Meal Plan
                 </button>
-              </form>
-
-              {
-                  mealPlan.length &&
-                  <ul className='relative flex mx-auto flex-wrap justify-center p-5'>
-                      {
-                          mealPlan && mealPlan.map((recipe, index) => {
-                              return (
-                                  <li key={index} className=" w-full max-h-[35vh] md:max-w-[25vw] rounded overflow-hidden m-5 shadow-lg">
-                                      <div className="w-full h-[45%]">
-                                          <img width={"100%"} className="w-full h-full" src={`https://spoonacular.com/recipeImages/${recipe.id}-556x370.jpg`} alt={recipe?.title} />
-                                      </div>
-                                      <div className="px-6 py-2">
-                                          <div className="font-bold text-xl mb-2">
-                                              {recipe?.title.toString().slice(0, 23)}
-                                          </div>
-                                      </div>
-                                      <div className="px-6 pt-4 pb-2">
-                                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Time: {recipe.readyInMinutes} min</span>
-                                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Servings: {recipe.servings}</span>
-                                          <span className="inline-block bg-green-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                                              <Link to={recipe.sourceUrl} target="_blank">
-                                                  Visit Page
-                                              </Link>
-                                          </span>
-                                      </div>
-                                  </li>
-                              )
-                          }
-                          )}
-
-                  </ul>
-              }
+        </form>
 
     </div>
   )
