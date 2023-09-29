@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import { tableData } from "./data"
 import { useState } from 'react'
 
@@ -21,8 +22,10 @@ const Table = () => {
                                 <p className='w-3/4 text-gray-400 font-semibold'>
                                     {row.desc}
                                 </p>
-                                <button className='bg-light-green px-5 py-3 rounded-full border-2 border-black text-custom-black font-semibold'>
-                                    {row.buttonText}
+                                <button className='bg-light-green px-5 py-3 rounded-full border-2 border-black text-custom-black font-semibold cursor-pointer hover:scale-110 duration-300'>
+                                    <NavLink to={row.link}>
+                                        {row.buttonText}
+                                    </NavLink>
                                 </button>
                             </td>
                             <td className={`flex-center w-full border-[3px] border-dashed border-custom-gray `}>

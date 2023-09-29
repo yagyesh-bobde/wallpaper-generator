@@ -1,6 +1,8 @@
-
+import HeroIcon from '../../assets/hero-icon.png'
+import Arrow from '../../assets/hero-arrow.png'
 
 const Hero = () => {
+  console.log(process.env.REACT_APP_ACCESS_KEY_UNSPLASH)
   return (
     <section
       className="main min-h-[90vh] grid place-content-center"
@@ -8,20 +10,20 @@ const Hero = () => {
     >
       <div className="hero_content flex-between h-3/4">
         <div className="hero_text">
-          <p className="text-7xl font-bold">
-            Every Bite,<br />Thoughtfully <span className="p-2 bg-light-green">Planned.</span>
+          <p className="text-7xl font-bold " style={{ lineHeight : "85px"}}>
+            Every Design,<br />
+            Thoughtfully <span className="bg-purple-200">Planned.</span>
           </p>
           <p className="text-2xl w-3/4 text-gray-400 font-semibold mt-10">
-            MealMate is your ultimate meal planning companion
-            helping you savor every meal, your way.
+            WalGen is your ultimate quote generator, wallpaper generator and best background gallery.
           </p>
         </div>
         <div className="hero_image" data-aos="zoom-in-up" data-aos-duration="" >
-          <img src={"/assets/hero-icon.png"} width={568} alt="Hero Image" />
+          <img src={HeroIcon} width={475} alt="Hero " />
         </div>
       </div>
       <div className="flex-center">
-        <img src={"/assets/hero-arrow.png"} alt="Scroll down" />
+        <img src={Arrow} alt="Scroll down" />
       </div>
     </section>
   )
