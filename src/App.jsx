@@ -3,6 +3,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 import Gallery from './pages/Gallery'
 import WalGenerator from './pages/WalGenerator'
 import Signup from './pages/Signup'
@@ -23,11 +24,16 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/profile" element={<Dashboard />} />
+        <Route path="/dashboard/wallpaper-generator" element={<Dashboard />} />
+
+        {/* Completed */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/quote-generator" element={<QuoteGenerator />} />
-        <Route path="/wallpaper-generator" element={<WalGenerator />} />
+        <Route path="/quotes-generator" element={<QuoteGenerator />} />
       </Routes>
     </BrowserRouter>
   )

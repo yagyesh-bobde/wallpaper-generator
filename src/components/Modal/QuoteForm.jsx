@@ -3,12 +3,11 @@ import mealContext from "../../context/walgenContext"
 
 
 const RecipeFormModal = ({ setshowForm } ) => {
-    const { addRecipe } = useContext(mealContext)
+    const { user } = useContext(mealContext)
     const [formData, setformData] = useState({
-        recipe_name: '',
-        ingredients: '',
-        rating: 1,
-        img_src: ""
+        quote: "",
+        author : user.name || "", 
+        category : ''
     })
 
     const updateFormData = (e) => {
@@ -24,38 +23,29 @@ const RecipeFormModal = ({ setshowForm } ) => {
       <div className="fixed left-0 top-0 right-0 bottom-0 z-[1055] overflow-y-auto overflow-x-hidden outline-none grid place-content-center backdrop-blur-sm">
           <div className="text-black w-[350px] md:w-[600px] min-h-[25vh] bg-white shadow-xl flex flex-col h-full">
               <div className="heading flex items-center p-3 text-3xl border-b-2 h-[30%] font-bold">
-                <h2 className="">Add Recipe</h2>
+                <h2 className="">Add Quote</h2>
               </div>
 
               <form className="body flex flex-col gap-5 text-2xl font-light p-3 ">
                   <div className="form-group flex flex-col gap-2">
-                    <label htmlFor="recipe_name" className="font-semibold">
-                        Recipe Name
+                    <label htmlFor="quote" className="font-semibold">
+                        Quote
                     </label>
-                    <input type="text" name="recipe_name" id="recipe_name" className="border-2 rounded-md p-3 w-full focus:outline-none" placeholder="Enter a recipe name" value={formData.recipe_name} onChange={updateFormData} />
+                    <input type="text" name="quote" id="quote" className="border-2 rounded-md p-3 w-full focus:outline-none" placeholder="Enter your quote" value={formData.quote} onChange={updateFormData} />
                   </div>
                   <div className="form-group flex flex-col gap-2">
-                    <label htmlFor="ingredients" className="font-semibold">
-                        Ingredients
+                    <label htmlFor="author" className="font-semibold">
+                        Author
                     </label>
-                    <input type="text" name="ingredients" id="recipe_name" className="border-2 rounded-md p-3 w-full focus:outline-none" placeholder="Enter list of ingredients" value={formData.ingredients} onChange={updateFormData} />
+                    <input type="text" name="author" id="author" className="border-2 rounded-md p-3 w-full focus:outline-none" placeholder="Enter author name" value={formData.author} onChange={updateFormData} />
                   </div>
                   <div className="form-group flex flex-col gap-2">
-                    <label htmlFor="rating" className="font-semibold">
-                        Rating
+                    <label htmlFor="category" className="font-semibold">
+                        Category
                     </label>
-                    <section className="flex items-center gap-5">
-                        <input type="range" draggable  name="rating" id="rating" min={1} max={5} value={formData.rating} className="border-2 rounded-md p-3 w-full focus:outline-none" placeholder="Enter rating" onChange={updateFormData} />
-                        <span className="text-xl font-semibold">
-                            { formData.rating }
-                        </span>
-                    </section>
-                  </div>
-                  <div className="form-group flex flex-col gap-2">
-                    <label htmlFor="img_src" className="font-semibold">
-                        Image
-                    </label>
-                    <input type="url" name="img_src" id="img_src" className="border-2 rounded-md p-3 w-full focus:outline-none" placeholder="Enter image url" value={formData.img_src} onChange={updateFormData} />
+                    <select name="category" id="category" className="border-2 rounded-md p-3 w-full focus:outline-none">
+                        <option value="" >Happiness</option>
+                    </select>
                   </div>
               </form>
 

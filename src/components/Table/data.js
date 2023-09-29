@@ -17,7 +17,7 @@ export const tableData = [
         title: "Wallpaper Generator", 
         desc: 'Walgen is your ultimate wallpaper generator companion helping you savor every wallpaper', 
         buttonText: "Try Wallpaper Generator",
-        link: '/wallpaper-generator',
+        link: '/login',
         img : Img2, 
         imgLink: "https://storyset.com/internet"
     },

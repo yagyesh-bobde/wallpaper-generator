@@ -18,8 +18,8 @@ const Header = () => {
                     </NavLink>
                 </li>
                 <li className='text-xl text-gray-400 font-semibold'>
-                    <NavLink to="/wallpaper-generator" >
-                        Wallpaper
+                    <NavLink to="/dashboard" >
+                        Dashboard
                     </NavLink>
                 </li>
                 <li className='text-xl text-gray-400 font-semibold'>

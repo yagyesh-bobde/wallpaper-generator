@@ -32,8 +32,8 @@ const Login = () => {
         })
         if (data.success) {
             localStorage.setItem('login', true)
-            notify(false, "Account Created Successfully !")
-            navigate('/meal-planner')
+            notify(false, "Login Successfully !")
+            navigate('/dashboard')
         } else {
             alert("Try Again !")
         }

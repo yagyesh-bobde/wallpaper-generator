@@ -34,3 +34,16 @@
     @apply flex justify-end items-center; 
   }
 }
+
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+*::-webkit-scrollbar-track {
+  @apply shadow-lg;
+}
+ 
+*::-webkit-scrollbar-thumb {
+  @apply bg-gray-300;
+}

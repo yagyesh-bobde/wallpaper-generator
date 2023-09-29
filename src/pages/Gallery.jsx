@@ -1,14 +1,11 @@
 import { useContext, useEffect, useState } from 'react'
 import mealContext from '../context/walgenContext'
-import RecipeFormModal from '../components/Modal/RecipeFormModal'
 
 const Recipes = () => {
-    const { fetchRecipes, recipes } = useContext(mealContext)
     const [showForm, setshowForm] = useState(false)
 
 
     useEffect(() => {
-        fetchRecipes()
 
     }, [])
 
@@ -52,9 +49,7 @@ const Recipes = () => {
                             </svg>
                         </div>
 
-                        {
-                            showForm && <RecipeFormModal setshowForm={setshowForm} />
-                        }
+                        
 
                     </ul>
                     :
