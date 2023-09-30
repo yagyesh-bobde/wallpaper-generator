@@ -67,14 +67,14 @@ const Login = () => {
 
                 <div className="form-group flex flex-col">
                     <label htmlFor="password " className="block text-semibold text-gray-400">Password</label>
-                    <input name="password" type="password" placeholder="" className="block border-b-2 border-black pb-2 focus:outline-none" value={formData.password} onChange={handleChange} />
+                    <input disabled name="password" type="password" placeholder="--------Not required--------" className="block border-b-2 border-black pb-2 focus:outline-none cursor-not-allowed " value={formData.password} onChange={handleChange} />
                 </div>
                 {/* { isSignUp ? <div className="subheading">
             Already have an account? <NavLink to="/" className="text-blue-500">Login</NavLink>
           </div> :  */}
                 <div className="subheading">
                     Don't have an account?
-                    <NavLink to="/login" className="text-blue-500"> Login.</NavLink>
+                    <NavLink to="/signup" className="text-blue-500"> Signup.</NavLink>
                 </div>
                 <button type="submit" className="bg-black py-2 text-white font-bold"
                 >

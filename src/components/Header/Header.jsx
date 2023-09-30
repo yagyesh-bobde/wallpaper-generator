@@ -1,8 +1,16 @@
+import { useEffect, useContext } from 'react'
+import walgenContext from '../../context/walgenContext'
 import Logo from '../../assets/Logo.png'
 import { NavLink } from 'react-router-dom'
 
 
 const Header = () => {
+    const { user } = useContext(walgenContext)
+
+    useEffect(() => {
+        
+    }, [user])
+
   return (
         <nav className="flex-between h-[10vh] border-b-[1px]">
             <NavLink to="/">
@@ -49,10 +57,10 @@ const Header = () => {
                             localStorage.removeItem('id')
                             window.location.reload()
                         }}>
-                            <NavLink to="/">
-                                Log Out
-                            </NavLink>
-                        </button>
+                                <NavLink to="/">
+                                    Log Out
+                                </NavLink>
+                            </button>
                 }
             </div>
         </nav>
