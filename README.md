@@ -1,22 +1,19 @@
 # WalGen
 WalGen is a captivating combination of React, Outerbase, and the creative art of generating quotes and wallpapers. In this technical blog, we'll take you through the journey of building WalGen, from conception to execution, and explore the technologies that brought it to life.
+![image](https://github.com/yagyesh-bobde/wallpaper-generator/assets/90238742/81d56ddd-2cc6-44bd-a8db-4265e2b39b64)
 
-The Tech Stack
+## The Tech Stack
 With the problem statement clear in our minds, it was time to choose the right tech stack for our project. Here's what we settled on:
 
-Frontend
+### Frontend
 React: For building a dynamic and responsive user interface.
 
-ContextAPI: To manage application state efficiently.
-
-Tailwind CSS: For a sleek and intuitive design.
-
-Figma: For designing the UI of the home page.
-
-Backend
-APIs
-Ninjas API: The Quotes API provides a nearly endless amount of quotes from famous people throughout history.
-
+- ContextAPI: To manage application state efficiently.
+- Tailwind CSS: For a sleek and intuitive design.
+- Figma: For designing the UI of the home page.
+### Backend
+#### APIs
+- Ninjas API: The Quotes API provides a nearly endless amount of quotes from famous people throughout history.
 Read more about it here or use it to create your applications.
 
 Deployment
