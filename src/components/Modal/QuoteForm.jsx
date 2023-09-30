@@ -2,11 +2,13 @@ import { useState, useContext } from "react"
 import mealContext from "../../context/walgenContext"
 
 
-const RecipeFormModal = ({ setshowForm } ) => {
-    const { user } = useContext(mealContext)
+const QuoteForm = ({ setshowForm } ) => {
+    const { user,categories, createQuote } = useContext(mealContext)
+    
     const [formData, setformData] = useState({
+        user_id : user.id || 1,
         quote: "",
-        author : user.name || "", 
+        author : user.name || "user", 
         category : ''
     })
 
@@ -16,8 +18,6 @@ const RecipeFormModal = ({ setshowForm } ) => {
             [e.target.name]: e.target.value
         })
     }
-
-
 
   return (
       <div className="fixed left-0 top-0 right-0 bottom-0 z-[1055] overflow-y-auto overflow-x-hidden outline-none grid place-content-center backdrop-blur-sm">
@@ -37,14 +37,22 @@ const RecipeFormModal = ({ setshowForm } ) => {
                     <label htmlFor="author" className="font-semibold">
                         Author
                     </label>
-                    <input type="text" name="author" id="author" className="border-2 rounded-md p-3 w-full focus:outline-none" placeholder="Enter author name" value={formData.author} onChange={updateFormData} />
+                    <input disabled type="text" name="author" id="author" className="border-2 rounded-md p-3 w-full focus:outline-none cursor-not-allowed bg-gray-200" placeholder="Enter author name" value={formData.author} onChange={updateFormData} />
                   </div>
                   <div className="form-group flex flex-col gap-2">
                     <label htmlFor="category" className="font-semibold">
                         Category
                     </label>
-                    <select name="category" id="category" className="border-2 rounded-md p-3 w-full focus:outline-none">
-                        <option value="" >Happiness</option>
+                    <select name="category" id="category" className="border-2 rounded-md p-3 w-full focus:outline-none" onChange={updateFormData}>
+                        {
+                            categories.map(category => {
+                                return(
+                                    <option key={category} value={category}>
+                                        {category}
+                                    </option>
+                                )
+                            })
+                        }
                     </select>
                   </div>
               </form>
@@ -59,7 +67,7 @@ const RecipeFormModal = ({ setshowForm } ) => {
                   </button>
                   <button className="border-2 bg-green-500 text-white p-3 rounded-md text-xl"
                       onClick={() => {
-                          addRecipe(formData)
+                          createQuote(formData)
                           setshowForm(false)
                       }}
                   >
@@ -71,4 +79,4 @@ const RecipeFormModal = ({ setshowForm } ) => {
   )
 }
 
-export default RecipeFormModal
+export default QuoteForm

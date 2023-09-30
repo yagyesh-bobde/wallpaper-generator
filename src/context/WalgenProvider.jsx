@@ -31,12 +31,13 @@ const MealProvider = (props) => {
         try{
 
         const response = await fetch(`https://encouraging-scarlet.cmd.outerbase.io/quotes`, {
-            'method': 'GET',
-            'headers': {
+            method: 'GET',
+            headers: {
                 'content-type': 'application/json'
             }
             })
-
+        
+            console.log(response)
             const res = await response.json() 
             if(res.success){
                 const filterList = res.response.items
@@ -45,16 +46,41 @@ const MealProvider = (props) => {
                 setquotes(newList)
             }
         } catch(error) {
+            console.log(error)
             notify(true, "Failed to fetch quotes!")
         }
         
     }
     
 
+        // TODO: add quote
+        const createQuote = async(quote) => {
+
+                const response = await fetch("https://encouraging-scarlet.cmd.outerbase.io/newquote", {
+                    method: 'POST',
+                    mode : 'no-cors',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        user_id : quote.user_id.toString(),
+                        quote : quote.quote.toString(),
+                        author : quote.author.toString(),
+                        category: quote.category.toString()
+                    })
+                })
+                
+                
+                notify(false, "Successfully Created Quote!")
+                setquotes([...quotes, quote])
+
+        }
+
+
     return (
         <walgenContext.Provider value={{ 
             user, setuser, notify, categories,
-            fetchAllQuotes, quotes
+            fetchAllQuotes, quotes, setquotes, createQuote
          }}>
         { props.children }
         </walgenContext.Provider>

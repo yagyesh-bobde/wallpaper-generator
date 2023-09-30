@@ -3,7 +3,7 @@ import mealContext from "../../context/walgenContext"
 
 
 const DeleteModal = ({ id, setDeleteModal } ) => {
-    const { user, notify } = useContext(mealContext)
+    const { user, notify, setquotes, quotes } = useContext(mealContext)
 
     const handleDelete = async() => {
         try{
@@ -13,15 +13,19 @@ const DeleteModal = ({ id, setDeleteModal } ) => {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify({
-                    id
+                    id: id.toString()
                 })
             })
             const res = await response.json()
             console.log(res)
+            if(res.success) {
+                notify(false, "Deleted Successfully!")
+                let filterList =  quotes.filter(quote => quote.id != id)
+                setquotes(filterList)
+            }
         }catch(error){
             notify(true, "Could not delete. Try Again!")
             console.log(error)
-            setDeleteModal(false)
         }
     }
 

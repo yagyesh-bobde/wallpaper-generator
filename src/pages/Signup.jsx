@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { useNavigate, NavLink } from "react-router-dom"
 import walgenContext from "../context/walgenContext"
 
@@ -35,7 +35,7 @@ const Signup = () => {
             notify(false, "Account Created Successfully !")
             navigate('/login')
         } else {
-            notify(false, "Account Creation Failed!")
+            notify(true, "Account Creation Failed!")
             setformData({
                 email: '',
                 name: '',
@@ -50,6 +50,13 @@ const Signup = () => {
             [e.target.name]: e.target.value
         })
     }
+
+
+    useEffect(() => {
+        notify(true, "Disclaimer: Password encryption is not enabled!")
+    },[])
+
+
     return (
         <div className="w-full min-h-[85vh] overflow-hidden grid place-content-center ">
             <form onSubmit={handleSubmit} className="login flex flex-col gap-5 bg-white rounded-2xl p-5 min-w-[350px] shadow-xl">
