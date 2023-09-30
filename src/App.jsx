@@ -4,6 +4,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
+import Gallery from './pages/Gallery'
 import Dashboard from './pages/Dashboard'
 import WalGenerator from './pages/WalGenerator'
 import Signup from './pages/Signup'
@@ -29,6 +30,7 @@ function App() {
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/gallery" element={<Gallery />} />
 
         <Route path="/quotes-generator" element={<QuoteGenerator />} />
       </Routes>
