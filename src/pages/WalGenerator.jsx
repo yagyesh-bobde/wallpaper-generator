@@ -37,9 +37,23 @@ const Planner = () => {
         let c = canvas.current
         let filename=`WalGen-${c.width}x${c.height}.png`
         const img = c.toDataURL()
-    
         uploadImage(img, filename)
+        c.toBlob((blob) => {
+            saveBlob(blob, filename)
+        })
     }
+
+    const saveBlob = (function() {
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.style.display = 'none';
+      return function saveData(blob, fileName) {
+         const url = window.URL.createObjectURL(blob);
+         a.href = url;
+         a.download = fileName;
+         a.click();
+      };
+    }());    
 
 
 
