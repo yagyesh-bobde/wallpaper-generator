@@ -58,7 +58,7 @@ const YourWallpapers = () => {
                     {
                         wallpapers.map(wallpaper => {
                             return (
-                                <SwiperSlide key={wallpaper.id} onClick={() => saveBlob(wallpaper.image_64, wallpaper.filename)}>
+                                <SwiperSlide key={wallpaper.id} >
                                     <NavLink to={wallpaper.image_64} target="_blank">
                                         <img src={wallpaper.image_64} alt="slider image" />
                                     </NavLink>
