@@ -14,17 +14,6 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 const YourWallpapers = () => {
     const { wallpapers, fetchAllWallpapers } = useContext(walgenContext)
     
-    const saveBlob = (function(url, filename) {
-        const a = document.createElement('a');
-        document.body.appendChild(a);
-        a.style.display = 'none';
-        return function saveData(blob, fileName) {
-            a.href = url;
-            a.download = true;
-            a.click();
-        };
-    }());
-
     useEffect(() => {
       if (localStorage.getItem('login')=== 'true'){ 
           fetchAllWallpapers(localStorage.getItem('id'))
