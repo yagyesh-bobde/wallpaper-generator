@@ -49,9 +49,7 @@ const QuoteGenerator = () => {
 
   return (
     <div className="relative grid place-content-center min-h-[85vh] min-w-screen px-10">
-      <button className="absolute top-10 left-[50%] right-[50%] text-2xl font-semibold shadow-2xl rounded-full px-5 py-3 duration-500 hover:scale-110 hover:shadow-5xl" onClick={generateRandomCategory}>
-        Generate
-      </button>
+
       <div className="relative quote p-5 w-full md:min-w-[50vw] text-center">
         <img src={Quote} alt="quote" width={75} className="absolute top-0 sm:left-0 " style={{  transform: 'scaleX(-1)'}} />
           <p className="w-3/4 mx-auto text-2xl md:text-4xl lg:text-6xl">
@@ -59,6 +57,9 @@ const QuoteGenerator = () => {
           </p>
         <img src={Quote} alt="quote" width={75} className="absolute bottom-0 sm:right-0" style={{  transform: "scaleX(-1) rotate(180deg)" }}/>
       </div>
+          <button className=" text-2xl font-semibold border-2 border-gray-200  mx-auto rounded-full shadow-xl duration-500 hover:scale-110" onClick={generateRandomCategory} style={{ padding: "15px 30px"}}>
+        Generate New Quote
+      </button>
       <div className="bg-gray-200 w-full text-center text-xl absolute bottom-0 py-5 font-semibold cursor-pointer hover:text-2xl duration-300" >
         {
           capitalizeFirstLetter(category)

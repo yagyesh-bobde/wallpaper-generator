@@ -10,8 +10,12 @@ const YourQuotes = () => {
     const [showForm, setshowForm] = useState(false)
     const [deleteModal, setDeleteModal] = useState(false)
 
+
+
     useEffect(() => {
-        fetchAllQuotes(user.id)
+      if (localStorage.getItem('login')=== 'true'){ 
+          fetchAllQuotes(parseInt(localStorage.getItem('id')))
+      } 
     }, [])
     
     return (

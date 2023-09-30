@@ -1,10 +1,10 @@
 
 
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
-import Gallery from './pages/Gallery'
 import WalGenerator from './pages/WalGenerator'
 import Signup from './pages/Signup'
 import Login from './pages/Login'
@@ -13,9 +13,7 @@ import QuoteGenerator from './pages/QuoteGenerator'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function App() {
-
   return (
     <BrowserRouter>
       <div className="px-10">
@@ -32,7 +30,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/gallery" element={<Gallery />} />
         <Route path="/quotes-generator" element={<QuoteGenerator />} />
       </Routes>
     </BrowserRouter>

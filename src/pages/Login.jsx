@@ -6,7 +6,7 @@ import walgenContext from "../context/walgenContext"
 
 const Login = () => {
     const navigate = useNavigate()
-    const { notify, setuser } = useContext(walgenContext)
+    const { notify, setuser, user } = useContext(walgenContext)
     const [formData, setformData] = useState({
         email: '',
         password: ''
@@ -19,8 +19,8 @@ const Login = () => {
                 'content-type': 'application/json'
             },
             'body': JSON.stringify({
-                email: formData.email,
-                password: formData.password
+                email: formData.email.toString(),
+                password: formData.password.toString()
             })
         })
 
@@ -31,11 +31,17 @@ const Login = () => {
             password: ''
         })
         if (data.success) {
-            localStorage.setItem('login', true)
-            notify(false, "Login Successfully !")
-            navigate('/dashboard')
+            if(data.response.items.length > 0){
+                setuser(data.response.items[0])
+                localStorage.setItem('login', true)
+                localStorage.setItem('id', data.response.items[0].id)
+                notify(false, "Login Successfully !")
+                navigate('/dashboard')
+            } else{
+                notify(true, "Invalid Credentials.Login Again!")
+            }
         } else {
-            alert("Try Again !")
+            notify(true, "Try Again !")
         }
     }
 
@@ -46,9 +52,6 @@ const Login = () => {
         })
     }
 
-    useEffect(() => {
-        notify(true, "Disclaimer: Password encryption is not enabled!")
-    },[])
     return (
         <div className="w-full min-h-[85vh] overflow-hidden grid place-content-center ">
             <form onSubmit={handleSubmit} className="login flex flex-col gap-5 bg-white rounded-2xl p-5 min-w-[350px] shadow-xl">

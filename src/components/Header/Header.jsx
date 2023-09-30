@@ -30,7 +30,7 @@ const Header = () => {
             </ul>
             <div className="nav_auth text-xl">
                 {
-                    !localStorage.getItem('login') ?
+                    localStorage.getItem('login') !=='true' ?
                         <>
                             <button className='cursor-pointer hover:scale-110  duration-300 rounded-full px-5 py-2 text-gray-400 font-semibold'>
                                 <NavLink to="/login">
@@ -46,6 +46,7 @@ const Header = () => {
                         :
                         <button className='cursor-pointer hover:scale-110  duration-300 border-[1px] bg-black shadow-xl rounded-full px-5 py-2 text-white font-semibold' onClick={() => {
                             localStorage.removeItem('login')
+                            localStorage.removeItem('id')
                             window.location.reload()
                         }}>
                             <NavLink to="/">

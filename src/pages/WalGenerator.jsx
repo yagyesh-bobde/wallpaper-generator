@@ -9,7 +9,7 @@ import canvasScreenshot from "canvas-screenshot";
 
 const Planner = () => {
     const canvas = useRef(null)
-    const { getMealPlan } = useContext(mealContext)
+    const { getMealPlan, createWallpaper, uploadImage } = useContext(mealContext)
     const navigate = useNavigate()
     const [formData, setformData] = useState({
         targetCal: 0,
@@ -31,34 +31,16 @@ const Planner = () => {
             ...formData,
             [e.target.name]: e.target.value
         })
-
     }    
 
     const saveSS= async() => {
         let c = canvas.current
+        let filename=`WalGen-${c.width}x${c.height}.png`
         const img = c.toDataURL()
-        console.log(img.length)
-        c.toBlob((blob) => {
-            console.log(blob)
-            saveBlob(blob, `WalGen-${c.width}x${c.height}.png`);
-        });
-
+    
+        uploadImage(img, filename)
     }
 
-    const saveBlob = (function() {
-        const a = document.createElement('a');
-        document.body.appendChild(a);
-        a.style.display = 'none';
-        return function saveData(blob, fileName) {
-            const url = window.URL.createObjectURL(blob);
-            const file = new File()
-
-            console.log(url)
-            a.href = url;
-            a.download = fileName;
-            //a.click();
-        };
-    }());
 
 
     useEffect(() => {

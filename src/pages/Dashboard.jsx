@@ -30,30 +30,27 @@ const Dashboard = () => {
   return (
     <div className="overflow-hidden flex min-h-[88vh] max-h-[89vh] ">
       <nav className="border-r-2 border-gray-200 min-h-full w-1/6 p-5 flex flex-col gap-5"> 
-        <p className="text-lg text-gray-400 h-[10%]">
-          Navigation
-        </p>
-        <ul className="flex flex-col  justify-around h-[50%]">
+        <ul className="flex flex-col justify-center h-full">
           <NavLink to="/dashboard">
-            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-100 duration-300 cursor-pointer  py-3 px-2" >
+            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-100 duration-300 cursor-pointer  py-3 px-2 hover:scale-110" >
               <img src={Quote} alt="all quote" style={{ transform: 'scaleX(-1)'}} />
               <p>All Quotes</p>
             </li>
           </NavLink>
           <NavLink to="/dashboard/wallpapers">
-            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-300 duration-300 cursor-pointer py-3 px-2" >
+            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-300 duration-300 cursor-pointer py-3 px-2 hover:scale-110" >
               <img src={Wallpaper} alt="all quote" style={{ transform: 'scaleX(-1)'}} />
               <p>Your Wallpapers</p>
             </li>
           </NavLink>
           <NavLink to="/dashboard/wallpaper-generator">
-            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-300 duration-300 cursor-pointer py-3 px-2" >
+            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-300 duration-300 cursor-pointer py-3 px-2 hover:scale-110" >
               <img src={Cool} alt="all quote" style={{ transform: 'scaleX(-1)'}} />
               <p>WalGen Tool</p>
             </li>
           </NavLink>
           <NavLink to="/dashboard/profile">
-            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-300 duration-300 cursor-pointer py-3 px-2" >
+            <li className="text-xl font-semibold flex  gap-5 hover:bg-gray-300 duration-300 cursor-pointer py-3 px-2 hover:scale-110" >
               <img src={ProfileIcon} alt="all quote" style={{ transform: 'scaleX(-1)'}} />
               <p>Profile</p>
             </li>
